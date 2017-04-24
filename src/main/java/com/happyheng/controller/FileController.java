@@ -33,7 +33,7 @@ public class FileController {
 
 
     @RequestMapping("test")
-    public FileUploadResponse test(){
+    public FileUploadResponse test() {
         FileUploadResponse uploadResponse = new FileUploadResponse();
         uploadResponse.setFilePath("test");
         return uploadResponse;
@@ -123,10 +123,8 @@ public class FileController {
 
     private String getRondomFileName() throws NoSuchAlgorithmException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmssSSS");
-        StringBuilder builder = new StringBuilder(dateFormat.format(new Date()));
-        builder.append((int) (Math.random() * 1000));
 
-        return MD5Utils.getMD5(builder.toString());
+        return MD5Utils.getMD5(dateFormat.format(new Date()) + (int) (Math.random() * 1000));
     }
 
 }
